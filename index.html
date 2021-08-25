@@ -1,22 +1,16 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>flowxa</title>
+  <link rel="stylesheet" href="./style.css">
 
-<script>
-  function GetUrlRelativePath()
-　　{
-　　　　var url = document.location.toString();
-　　　　var arrUrl = url.split("//");
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main></main>
+<!-- partial -->
+  <script  src="./script.js"></script>
 
-　　　　var start = arrUrl[1].indexOf("/");
-　　　　var relUrl = arrUrl[1].substring(start);//stop省略，截取从start开始到结尾的所有字符
-
-　　　　if(relUrl.indexOf("?") != -1){
-　　　　　　relUrl = relUrl.split("?")[0];
-　　　　}
-　　　　return relUrl;
-　　}
-  
-  var urlpara = location.search; 
- window.location.href="http://cc.flowx.cn"+GetUrlRelativePath(); 
-  </script>
-  <div>www.flowxa.com</div>
+</body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flvjs player</title>
+    <meta name="Access-Control-Allow-Origin" content="*">
+    <script src="https://www.flowxa.com/js/jquery-1.12.3.min.js"></script>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <script>
+         function GetQueryString(name) {
+                //获取地址栏参数
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]); return null;
+            }
+            var flvurl='2022071036309672`13_26_52.flv';//'http://cc.flowx.cn/a1.flv'
+            var t= GetQueryString("key")
+            if(t!=null){
+                flvurl=t;
+            }
+    </script>
+</head>
+<body>
+    <script src="https://www.flowxa.com/js/flv.min.js"></script>
+<video id="videoElement" width="300" height="300" autoplay  muted></video>  <!--controls -->
+
+ <button onclick="aa();">pause</button> 
+<script>
+    if (flvjs.isSupported()) {
+        var videoElement = document.getElementById('videoElement');
+        var flvPlayer = flvjs.createPlayer({
+            type: 'flv',
+            url: flvurl//'http://cc.flowx.cn/a1.flv',
+            
+        });
+        flvPlayer.attachMediaElement(videoElement);
+        flvPlayer.load();
+       // flvPlayer.play();
+       
+      
+    }
+
+    var state=1;
+    function aa(){
+        flvPlayer.pause();
+        if(state==1){
+            flvPlayer.pause();
+            state=2;
+        }
+        else if(state==2){
+            flvPlayer.play();
+            state=1;
+        }
+    }
+
+    document.body.addEventListener("mousedown", function(){
+    var vdo = $("video")[0]; //jquery
+    vdo.muted = false;
+    }, false);
+
+</script>
+</body>
+</html>
